@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zumradoy - Interaktiv Darslik</title>
+    
+    <style>
+        body {
+            background-color: #e8f5e9; /* Och yashil fon 🌿 */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .konteyner {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #2e7d32; }
+
+        .zumrad-rasm {
+            width: 150px;
+            border-radius: 50%;
+            border: 5px solid #4caf50;
+        }
+
+        /* 📚 Kitob shaklidagi tugmalar */
+        .panjara {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .kitob-tugma {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 25px 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px 30px 10px 10px; /* Kitob muqovasi shakli */
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 5px #2e7d32;
+        }
+
+        .kitob-tugma:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px #2e7d32;
+        }
+
+        #xabar-maydoni {
+            margin-top: 20px;
+            padding: 15px;
+            font-style: italic;
+            color: #1b5e20;
+            border-top: 2px dashed #4caf50;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="konteyner">
+        <h1 id="sarlavha">Assalomu alaykum!</h1>
+        
+        <img src="zumrad.png" alt="Zumrad" class="zumrad-rasm">
+
+        <div id="asosiy-sahifa">
+            <p>Bilimdon do'stim, kel bugun birgalikda yozish qoidalarini o'rganamiz!</p>
+            <div class="panjara">
+                <button class="kitob-tugma" onclick="darsniBoshlash(1)">1-sinf</button>
+                <button class="kitob-tugma" onclick="darsniBoshlash(2)">2-sinf</button>
+                <button class="kitob-tugma" onclick="darsniBoshlash(3)">3-sinf</button>
+                <button class="kitob-tugma" onclick="darsniBoshlash(4)">4-sinf</button>
+            </div>
+        </div>
+
+        <div id="xabar-maydoni"></div>
+    </div>
+
+    <script>
+        function darsniBoshlash(sinf) {
+            const xabar = document.getElementById('xabar-maydoni');
+            const asosiy = document.getElementById('asosiy-sahifa');
+            
+            asosiy.style.display = 'none';
+            xabar.style.display = 'block';
+
+            if(sinf === 1) {
+                xabar.innerHTML = `
+                    <p><b>Zumrad:</b> "Mana mening singlim — Qimmat. Bizning ismlarimiz qanday yozilganiga e'tibor ber!"</p>
+                    <p style="font-size: 24px;"><b>Z</b>umrad & <b>Q</b>immat</p>
+                    <button class="kitob-tugma" style="width:100%" onclick="xatYuborish()">Xat yuborish</button>
+                `;
+            } else {
+                xabar.innerHTML = "<p>Bu sinf darslari tez kunda qo'shiladi! 😊</p>";
+            }
+        }
+
+        function xatYuborish() {
+            alert("Zumrad: Ota-onangga xat yubordim! 📩");
+        }
+    </script>
+</body>
+</html>
