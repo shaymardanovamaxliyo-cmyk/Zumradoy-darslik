@@ -84,33 +84,48 @@
                 <button class="kitob-tugma" onclick="darsniBoshlash(3)">3-sinf</button>
                 <button class="kitob-tugma" onclick="darsniBoshlash(4)">4-sinf</button>
             </div>
-        </div>
+        <script>
+    function darsniBoshlash(sinf) {
+        const xabar = document.getElementById('xabar-maydoni');
+        const asosiy = document.getElementById('asosiy-sahifa');
 
-        <div id="xabar-maydoni"></div>
-    </div>
-
-    <script>
-        function darsniBoshlash(sinf) {
-            const xabar = document.getElementById('xabar-maydoni');
-            const asosiy = document.getElementById('asosiy-sahifa');
-            
+        if (asosiy && xabar) {
             asosiy.style.display = 'none';
             xabar.style.display = 'block';
 
-            if(sinf === 1) {
+            if (sinf === 1) {
                 xabar.innerHTML = `
-                    <p><b>Zumrad:</b> "Mana mening singlim — Qimmat. Bizning ismlarimiz qanday yozilganiga e'tibor ber!"</p>
-                    <p style="font-size: 24px;"><b>Z</b>umrad & <b>Q</b>immat</p>
-                    <button class="kitob-tugma" style="width:100%" onclick="xatYuborish()">Xat yuborish</button>
+                    <p><b>Zumrad:</b> "Bilimdon do'stim, 'Alla' so'zi qaysi harfdan boshlanadi?"</p>
+                    <div class="panjara">
+                        <button class="kitob-tugma" onclick="tekshir('B')">B</button>
+                        <button class="kitob-tugma" onclick="tekshir('A')">A</button>
+                        <button class="kitob-tugma" onclick="tekshir('D')">D</button>
+                    </div>
                 `;
-            } else {
-                xabar.innerHTML = "<p>Bu sinf darslari tez kunda qo'shiladi! 😊</p>";
             }
         }
+    }
 
-        function xatYuborish() {
-            alert("Zumrad: Ota-onangga xat yubordim! 📩");
+    function tekshir(harf) {
+        const xabar = document.getElementById('xabar-maydoni');
+        if (harf === 'A') {
+            xabar.innerHTML = `
+                <div style="text-align: center;">
+                    <p style="color: green; font-size: 20px;"><b>Barakalla! To'g'ri!</b> 🌟</p>
+                    <p><i>Alla aytar onajonim...</i></p>
+                    <img src="IMG_20260306_221939_869.jpg" alt="Alla" style="width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid #4caf50;">
+                    <br><br>
+                    <button class="kitob-tugma" onclick="location.reload()">Orqaga qaytish</button>
+                </div>
+            `;
+        } else {
+            alert("Bu boshqa harf, yana bir bor urinib ko'r! 😊");
         }
-    </script>
+    }
+
+    function xatYuborish() {
+        alert("Zumrad: Ota-onangga xat yubordim! 📩");
+    }
+</script>
 </body>
 </html>
