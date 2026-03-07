@@ -72,7 +72,9 @@
         <div id="xabar-maydoni"></div>
     </div>
 
-    <script>
+     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+ <script>
+
         function darsniBoshlash(sinf) {
             const asosiy = document.getElementById('asosiy-sahifa');
             const xabar = document.getElementById('xabar-maydoni');
@@ -95,7 +97,14 @@
 
         function tekshir(harf) {
             const xabar = document.getElementById('xabar-maydoni');
-            if (harf === 'A') {
+            if (harf === 'A') { let audio = new Audio('universfield-magic-03-278824 (1).mp3');
+audio.play();// 2. Konfetti otish 🎉
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+
                 xabar.innerHTML = `
                     <div style="text-align: center;">
                         <p style="color: green; font-size: 20px;"><b>Barakalla! To'g'ri!</b> 🌟</p>
