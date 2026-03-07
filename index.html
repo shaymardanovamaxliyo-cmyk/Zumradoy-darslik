@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zumradoy - Interaktiv Darslik</title>
-    
     <style>
         body {
-            background-color: #e8f5e9; /* Och yashil fon 🌿 */
+            background-color: #e8f5e9; 🌿
             font-family: 'Comic Sans MS', cursive, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
         }
-
         .konteyner {
             max-width: 500px;
             margin: 0 auto;
@@ -22,47 +20,35 @@
             border-radius: 20px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
         h1 { color: #2e7d32; }
-
         .zumrad-rasm {
             width: 150px;
             border-radius: 50%;
             border: 5px solid #4caf50;
         }
-
-        /* 📚 Kitob shaklidagi tugmalar */
         .panjara {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-top: 20px;
         }
-
         .kitob-tugma {
             background-color: #4caf50;
             color: white;
             border: none;
-            padding: 25px 10px;
+            padding: 20px 10px;
             font-size: 18px;
             font-weight: bold;
-            border-radius: 10px 30px 10px 10px; /* Kitob muqovasi shakli */
+            border-radius: 10px 30px 10px 10px; 📚
             cursor: pointer;
-            transition: transform 0.2s;
             box-shadow: 0 5px #2e7d32;
         }
-
         .kitob-tugma:active {
             transform: translateY(3px);
             box-shadow: 0 2px #2e7d32;
         }
-
         #xabar-maydoni {
             margin-top: 20px;
-            padding: 15px;
-            font-style: italic;
-            color: #1b5e20;
-            border-top: 2px dashed #4caf50;
             display: none;
         }
     </style>
@@ -70,11 +56,8 @@
 <body>
 
     <div class="konteyner">
-        <h1 id="sarlavha">Assalomu alaykum!</h1>
-        
+        <h1>Assalomu alaykum!</h1>
         <img src="1772814906882.png" alt="Zumrad" class="zumrad-rasm">
-
-
 
         <div id="asosiy-sahifa">
             <p>Bilimdon do'stim, kel bugun birgalikda yozish qoidalarini o'rganamiz!</p>
@@ -84,16 +67,19 @@
                 <button class="kitob-tugma" onclick="darsniBoshlash(3)">3-sinf</button>
                 <button class="kitob-tugma" onclick="darsniBoshlash(4)">4-sinf</button>
             </div>
-        <script>
-    function darsniBoshlash(sinf) {
-        const xabar = document.getElementById('xabar-maydoni');
-        const asosiy = document.getElementById('asosiy-sahifa');
+        </div>
 
-        if (asosiy && xabar) {
-            asosiy.style.display = 'none';
-            xabar.style.display = 'block';
+        <div id="xabar-maydoni"></div>
+    </div>
+
+    <script>
+        function darsniBoshlash(sinf) {
+            const asosiy = document.getElementById('asosiy-sahifa');
+            const xabar = document.getElementById('xabar-maydoni');
 
             if (sinf === 1) {
+                asosiy.style.display = 'none';
+                xabar.style.display = 'block';
                 xabar.innerHTML = `
                     <p><b>Zumrad:</b> "Bilimdon do'stim, 'Alla' so'zi qaysi harfdan boshlanadi?"</p>
                     <div class="panjara">
@@ -102,30 +88,28 @@
                         <button class="kitob-tugma" onclick="tekshir('D')">D</button>
                     </div>
                 `;
+            } else {
+                alert("Hozircha faqat 1-sinf darsi tayyor! 😊");
             }
         }
-    }
 
-    function tekshir(harf) {
-        const xabar = document.getElementById('xabar-maydoni');
-        if (harf === 'A') {
-            xabar.innerHTML = `
-                <div style="text-align: center;">
-                    <p style="color: green; font-size: 20px;"><b>Barakalla! To'g'ri!</b> 🌟</p>
-                    <p><i>Alla aytar onajonim...</i></p>
-                    <img src="IMG_20260306_221939_869.jpg" alt="Alla" style="width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid #4caf50;">
-                    <br><br>
-                    <button class="kitob-tugma" onclick="location.reload()">Orqaga qaytish</button>
-                </div>
-            `;
-        } else {
-            alert("Bu boshqa harf, yana bir bor urinib ko'r! 😊");
+        function tekshir(harf) {
+            const xabar = document.getElementById('xabar-maydoni');
+            if (harf === 'A') {
+                xabar.innerHTML = `
+                    <div style="text-align: center;">
+                        <p style="color: green; font-size: 20px;"><b>Barakalla! To'g'ri!</b> 🌟</p>
+                        <p><i>Alla aytar onajonim...</i></p>
+                        <img src="IMG_20260306_221939_869.jpg" alt="Alla" style="width: 100%; max-width: 300px; border-radius: 15px; border: 3px solid #4caf50;">
+                        <br><br>
+                        <button class="kitob-tugma" onclick="location.reload()">Orqaga qaytish</button>
+                    </div>
+                `;
+            } else {
+                alert("Bu boshqa harf, yana bir bor urinib ko'r! 😊");
+            }
         }
-    }
-
-    function xatYuborish() {
-        alert("Zumrad: Ota-onangga xat yubordim! 📩");
-    }
-</script>
+    </script>
 </body>
 </html>
+
